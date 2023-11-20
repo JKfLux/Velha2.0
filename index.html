@@ -1,0 +1,73 @@
+<html>
+
+<head>
+    <title>Jogo da Velha</title>
+
+</head>
+
+<body>
+    <style>
+        body {}
+
+        td {
+            background-color: gray;
+            height: 100px;
+            width: 100px;
+        }
+
+        h1 {
+            text-align: center;
+        }
+    </style>
+    <h1>
+        Bem-Vindo!
+    </h1>
+    <table>
+        <tr>
+            <td onclick=marcar(0)></td>
+            <td onclick=marcar(1)></td>
+            <td onclick=marcar(2)></td>
+        </tr>
+        <tr>
+            <td onclick=marcar(3)></td>
+            <td onclick=marcar(4)></td>
+            <td onclick=marcar(5)></td>
+        </tr>
+        <tr>
+            <td onclick=marcar(6)></td>
+            <td onclick=marcar(7)></td>
+            <td onclick=marcar(8)></td>
+        </tr>
+    </table>
+    <script>
+        let table = ["", "", "", "", "", "", "", "", ""]
+        let jogador = "x"
+
+        function marcar(posicao) {
+
+            table[posicao] = jogador
+
+            if (jogador == "x") {
+
+                jogador = "o"
+            } else {
+                jogador = "x"
+
+            }
+            render()
+        }
+
+        function render() {
+
+            let tds = document.querySelectorAll("td")
+            let index = 0
+
+            while (index < 9) {
+                tds[index].innerHTML = table[index]
+                index++
+            }
+        }
+    </script>
+</body>
+
+</html>
